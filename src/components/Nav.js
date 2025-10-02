@@ -11,7 +11,7 @@ const Nav = () => {
   return (
     <>
       <div className="header w-full">
-        <div className="top_header flex p-6 max-w-full bg-dark text-inverse">
+        <div className="top_header flex py-2 px-6  max-w-full bg-dark text-inverse">
           <div className="icon text-primary text-3xl">
             <MdLocalShipping />
           </div>
@@ -19,7 +19,7 @@ const Nav = () => {
             <p>Free Shipping When Shopping upto $1000</p>
           </div>
         </div>
-        <div className="mid_header bg-neutral flex px-8 py-10 max-w-full justify-between ">
+        <div className="mid_header bg-neutral flex px-10 py-4 max-w-full justify-between ">
           <div className="logo">
             <img src={Logo} alt="Logo" className="w-[75px]"></img>
           </div>
@@ -130,10 +130,10 @@ const Nav = () => {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  to="/cart"
                   className="text-inverse hover:text-primary transition-colors duration-300"
                 >
-                  Contact
+                  Cart
                 </Link>
               </li>
             </ul>
