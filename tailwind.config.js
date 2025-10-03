@@ -23,6 +23,26 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        '.custom-scrollbar': {
+          '&::-webkit-scrollbar': {
+            width: '8px', // Thin scrollbar
+          },
+          '&::-webkit-scrollbar-track': {
+            backgroundColor: '#f3f3f3', // Light gray track
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#a0a0a0', // Medium gray thumb
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: '#606060', // Darker gray on hover
+          },
+        },
+      })
+    },
+  ],
 }
 

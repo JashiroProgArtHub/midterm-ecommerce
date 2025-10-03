@@ -1,12 +1,24 @@
 import React from "react";
 import { MdLocalShipping } from "react-icons/md";
-import { CiSearch, CiLogin, CiLogout, CiUser } from "react-icons/ci";
+import { CiSearch, CiLogin, CiLogout, CiUser, CiShoppingCart } from "react-icons/ci";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Logo from "../logo.svg";
 const Nav = () => {
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
+
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (query.trim() !== "") {
+      navigate(`/shop?q=${query}`);
+    }
+    setQuery("")
+  };
 
   return (
     <>
@@ -26,11 +38,12 @@ const Nav = () => {
           <div className="search_box flex flex-row h-12">
             <input
               type="text"
-              value=""
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="search"
               className="focus:outline-none px-4 py-2 h-12 border-[1px]  border-neutral focus:border-secondary rounded-md"
             ></input>
-            <button className="ml-2 cursor-pointer  bg-primary hover:bg-secondary transition-colors duration-150 px-4 py-3 h-12 rounded-md border-[1px] border-neutral text-inverse">
+            <button onClick={handleSearch} className="ml-2 cursor-pointer  bg-primary hover:bg-secondary transition-colors duration-150 px-4 py-3 h-12 rounded-md border-[1px] border-neutral text-inverse">
               <CiSearch />
             </button>
           </div>
@@ -131,9 +144,9 @@ const Nav = () => {
               <li>
                 <Link
                   to="/cart"
-                  className="text-inverse hover:text-primary transition-colors duration-300"
+                  className="text-inverse hover:text-primary transition-colors duration-300 text-4xl"
                 >
-                  Cart
+                  <CiShoppingCart />
                 </Link>
               </li>
             </ul>

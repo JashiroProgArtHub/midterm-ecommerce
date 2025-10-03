@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 
-// branch: feature/products-api
 
 const Home = () => {
 
 
   return (
-    <div className="home w-full h-full bg-white">
-      {/* Top Banner */}
-      <div className="top_banner relative h-[525px] md:h-[525px] shadow-xl rounded-xl overflow-hidden mb-8">
+    <div className="home w-full h-full bg-white ">
+      <div className="top_banner relative h-[525px] md:h-[525px]  rounded-xl overflow-hidden mb-8">
         <div className="content absolute inset-0 flex flex-col justify-center items-start px-8 md:px-16 text-neutral">
           <h3 className="text-lg md:text-xl font-medium uppercase tracking-wide">
             30% off your first order
